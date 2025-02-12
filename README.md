@@ -18,7 +18,7 @@ plugins {
 minecraft_fp {
     //...
     kotlin {
-        version = "LATEST_VERSION"
+        forgelinVersion = "LATEST_VERSION"
     }
 }
 ```
