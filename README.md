@@ -11,7 +11,7 @@ Fork of [shadowfacts Forgelin](https://github.com/shadowfacts/Forgelin).
 ```kotlin
 plugins {
     //...
-    kotlin("jvm") version "LATEST_VERSION"
+    kotlin("jvm") version "LATEST_KOTLIN_VERSION"
 }
 minecraft_fp {
     //...
@@ -20,3 +20,5 @@ minecraft_fp {
     }
 }
 ```
+
+The kotlin version that forgelin downloads is always in the suffix after the `-` in the version number
