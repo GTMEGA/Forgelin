@@ -17,7 +17,5 @@ class ForgelinSetup : IFMLCallHook {
     }
 
     @Throws(Exception::class)
-    override fun call(): Void? {
-        return null
-    }
+    override fun call() = null
 }

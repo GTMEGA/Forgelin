@@ -4,13 +4,14 @@
 	  "name": "${modName}",
 	  "version": "${modVersion}",
 	  "mcversion": "${minecraftVersion}",
-	  "description": "Kotlin helper library for Forge. Minecraft 1.7.10 Port",
+	  "description": "Kotlin 2 helper library for Forge. Minecraft 1.7.10 Port",
 	  "credits": "Emberwalker, for the original Forgelin, shadowfacts for the fork",
-	  "url": "https://github.com/shadowfacts/Forgelin",
+	  "url": "https://github.com/FalsePattern/Forgelin",
 	  "updateUrl": "",
 	  "authorList": [ 
       "bartimaeusnek", 
-      "Telan" 
+      "Telan",
+	  "FalsePattern"
 	  ],
 	  "screenshots": []
 	}

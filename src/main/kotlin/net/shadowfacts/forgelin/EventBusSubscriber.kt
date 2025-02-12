@@ -29,9 +29,11 @@ import cpw.mods.fml.relauncher.Side
 
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.TYPE)
-annotation class EventBusSubscriber(vararg val value: Side = [Side.CLIENT, Side.SERVER],
-                                             /**
-                                                  * Optional value, only nessasary if tis annotation is not on the same class that has a @Mod annotation.
-                                                  * Needed to prevent early classloading of classes not owned by your mod.
-                                                  */
-                                             val modid: String = "")
+annotation class EventBusSubscriber(
+    vararg val value: Side = [Side.CLIENT, Side.SERVER],
+    /**
+     * Optional value, only necessary if this annotation is not on the same class that has a @Mod annotation.
+     * Needed to prevent early classloading of classes not owned by your mod.
+     */
+    val modid: String = ""
+)
