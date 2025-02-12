@@ -8,6 +8,8 @@ Fork of [shadowfacts Forgelin](https://github.com/shadowfacts/Forgelin).
 - Provides a Forge `ILanguageAdapter` for using Kotlin `object` classes as your main mod class.
 
 ## Usage with [FPGradle](https://github.com/Falsepattern/Examplemod)
+
+build.gradle.kts:
 ```kotlin
 plugins {
     //...
@@ -19,6 +21,10 @@ minecraft_fp {
         version = "LATEST_VERSION"
     }
 }
+```
+gradle.properties:
+```properties
+kotlin.stdlib.default.dependency=false
 ```
 
 The kotlin version that forgelin downloads is always in the suffix after the `-` in the version number
