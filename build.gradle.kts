@@ -35,7 +35,6 @@ repositories {
 }
 
 dependencies {
-    implementationSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.5.9")
     api("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
     api("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     api("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
