@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.Side
 import org.apache.logging.log4j.LogManager
 import java.lang.reflect.Field
 import java.lang.reflect.Method
+import kotlin.reflect.full.createInstance
 
 /**
  * Forge {@link ILanguageAdapter} for Kotlin
@@ -31,7 +32,21 @@ class KotlinAdapter : ILanguageAdapter {
 
     override fun getNewInstance(container: FMLModContainer, objectClass: Class<*>, classLoader: ClassLoader, factoryMarkedAnnotation: Method?): Any {
         log.debug("FML has asked for {} to be constructed", objectClass.simpleName)
-        return objectClass.kotlin.objectInstance ?: objectClass.newInstance()
+        val kClass = objectClass.kotlin
+
+        return kClass.objectInstance ?: run {
+            //Force static initializer to run
+            Class.forName(objectClass.name, true, objectClass.classLoader)
+            kClass.objectInstance ?: runCatching {
+                kClass.createInstance()
+            }.getOrElse { throwable ->
+                runCatching {
+                    objectClass.newInstance()
+                }.onFailure {
+                    t2 -> t2.addSuppressed(throwable)
+                }.getOrThrow()
+            }
+        }
     }
 
     override fun setInternalProxies(mod: ModContainer?, side: Side?, loader: ClassLoader?) {
