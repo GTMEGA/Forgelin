@@ -1,10 +1,11 @@
 plugins {
     id("com.falsepattern.fpgradle-mc") version "0.15.1"
-    kotlin("jvm") version "2.1.10"
+    kotlin("jvm") version "2.1.21"
 }
 
-val kotlinVersion = "2.1.10"
-val coroutinesVersion = "1.10.1"
+val kotlinVersion = "2.1.21"
+val coroutinesVersion = "1.10.2"
+val serializationVersion = "1.8.1"
 
 group = "mega"
 
@@ -35,10 +36,12 @@ repositories {
 }
 
 dependencies {
-    api("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
-    api("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-    api("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-    api("org.jetbrains:annotations:26.0.2")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${coroutinesVersion}")
+    apiSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.5.10")
+    compileOnlyApi("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
+    compileOnlyApi("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
+    compileOnlyApi("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
+    compileOnlyApi("org.jetbrains:annotations:26.0.2")
+    compileOnlyApi("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}")
+    compileOnlyApi("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${coroutinesVersion}")
+    compileOnlyApi("org.jetbrains.kotlinx:kotlinx-serialization-core:${serializationVersion}")
 }
