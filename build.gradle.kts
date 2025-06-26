@@ -1,9 +1,9 @@
 plugins {
-    id("com.falsepattern.fpgradle-mc") version "0.15.1"
-    kotlin("jvm") version "2.1.21"
+    id("com.falsepattern.fpgradle-mc") version "0.19.0"
+    kotlin("jvm") version "2.2.0"
 }
 
-val kotlinVersion = "2.1.21"
+val kotlinVersion = "2.2.0"
 val coroutinesVersion = "1.10.2"
 val serializationVersion = "1.8.1"
 
@@ -36,7 +36,7 @@ repositories {
 }
 
 dependencies {
-    apiSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.5.10")
+    apiSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.7.0")
     compileOnlyApi("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
     compileOnlyApi("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     compileOnlyApi("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")

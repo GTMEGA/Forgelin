@@ -17,12 +17,12 @@ build.gradle.kts:
 ```kotlin
 plugins {
     //...
-    kotlin("jvm") version "LATEST_KOTLIN_VERSION"
+    kotlin("jvm") version "2.2.0"
 }
 minecraft_fp {
     //...
     kotlin {
-        forgelinVersion = "LATEST_VERSION"
+        forgelinVersion = "2.1.1-2.2.0"
     }
 }
 ```
