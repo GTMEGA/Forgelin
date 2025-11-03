@@ -1,11 +1,7 @@
 plugins {
-    id("com.falsepattern.fpgradle-mc") version "0.19.1"
-    kotlin("jvm") version "2.2.0"
+    alias(libs.plugins.fpgradle)
+    alias(libs.plugins.kotlin)
 }
-
-val kotlinVersion = "2.2.0"
-val coroutinesVersion = "1.10.2"
-val serializationVersion = "1.8.1"
 
 group = "mega"
 
@@ -17,6 +13,10 @@ minecraft_fp {
     }
     core {
         coreModClass = "preloader.ForgelinPlugin"
+    }
+
+    kotlin {
+        hasKotlinDeps = true
     }
 
     tokens {
@@ -36,12 +36,26 @@ repositories {
 }
 
 dependencies {
-    apiSplit("com.falsepattern:falsepatternlib-mc1.7.10:1.7.0")
-    compileOnlyApi("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
-    compileOnlyApi("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
-    compileOnlyApi("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
-    compileOnlyApi("org.jetbrains:annotations:26.0.2")
-    compileOnlyApi("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}")
-    compileOnlyApi("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${coroutinesVersion}")
-    compileOnlyApi("org.jetbrains.kotlinx:kotlinx-serialization-core:${serializationVersion}")
+    compileOnlyApi(variantOf(libs.fplib) { classifier("api") })
+    runtimeOnly(variantOf(libs.fplib) { classifier("dev") })
+    compileOnlyApi(libs.kotlin.stdlib)
+    compileOnlyApi(libs.kotlin.stdlibJdk8)
+    compileOnlyApi(libs.kotlin.reflect)
+    compileOnlyApi(libs.jetbrains.annotations)
+    compileOnlyApi(libs.kotlinx.coroutinesCore)
+    compileOnlyApi(libs.kotlinx.coroutinesJdk8)
+    compileOnlyApi(libs.kotlinx.serializationCore)
+}
+
+tasks.processResources {
+    val versions = mapOf(
+        "versionKotlin" to libs.versions.kotlin,
+        "versionAnnotations" to libs.versions.annotations,
+        "versionCoroutines" to libs.versions.coroutines,
+        "versionSerialization" to libs.versions.serialization
+    )
+    inputs.property("forgelinVersions", versions)
+    filesMatching("META-INF/kotlindeps.json") {
+        expand(versions.map { (name, ver) -> name to ver.get() }.toMap())
+    }
 }
