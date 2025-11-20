@@ -17,7 +17,7 @@ import org.objectweb.asm.tree.VarInsnNode;
 
 @SuppressWarnings("UnstableApiUsage")
 public class MinecraftServerThreadUtilTransformer implements TurboClassTransformer {
-    private static final String HANDLER_INTERNAL = "net/shadowfacts/forgelin/internal/ServerThreadUtil";
+    private static final String HANDLER_INTERNAL = "net/shadowfacts/forgelin/coroutines/MinecraftServerDispatcher";
     private static final String SERVER_NAME = "net.minecraft.server.MinecraftServer";
     private static final String SERVER_INTERNAL = "net/minecraft/server/MinecraftServer";
     private static final String PROFILER_INTERNAL = "net/minecraft/profiler/Profiler";
@@ -74,7 +74,7 @@ public class MinecraftServerThreadUtilTransformer implements TurboClassTransform
         } else {
             theCall.add(new InsnNode(Opcodes.ACONST_NULL));
         }
-        theCall.add(new MethodInsnNode(Opcodes.INVOKESTATIC, HANDLER_INTERNAL, "runJobs", "(L" + PROFILER_INTERNAL + ";)V", false));
+        theCall.add(new MethodInsnNode(Opcodes.INVOKESTATIC, HANDLER_INTERNAL, "runTasks", "(L" + PROFILER_INTERNAL + ";)V", false));
         updateMethod.instructions.insert(theCall);
     }
 }

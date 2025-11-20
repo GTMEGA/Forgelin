@@ -15,7 +15,8 @@
         "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${versionCoroutines}",
         "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${versionCoroutines}",
         "org.jetbrains.kotlinx:kotlinx-serialization-core:${versionSerialization}",
-        "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:${versionSerialization}"
+        "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:${versionSerialization}",
+        "it.unimi.dsi:fastutil:${versionFastutil}"
       ],
       "client": [
       ],

@@ -45,6 +45,7 @@ dependencies {
     compileOnlyApi(libs.kotlinx.coroutinesCore)
     compileOnlyApi(libs.kotlinx.coroutinesJdk8)
     compileOnlyApi(libs.kotlinx.serializationCore)
+    compileOnly(libs.fastutil)
 }
 
 tasks.processResources {
@@ -52,7 +53,8 @@ tasks.processResources {
         "versionKotlin" to libs.versions.kotlin,
         "versionAnnotations" to libs.versions.annotations,
         "versionCoroutines" to libs.versions.coroutines,
-        "versionSerialization" to libs.versions.serialization
+        "versionSerialization" to libs.versions.serialization,
+        "versionFastutil" to libs.versions.fastutil
     )
     inputs.property("forgelinVersions", versions)
     filesMatching("META-INF/kotlindeps.json") {

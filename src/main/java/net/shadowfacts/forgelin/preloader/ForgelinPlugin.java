@@ -1,7 +1,9 @@
 package net.shadowfacts.forgelin.preloader;
 
 import net.shadowfacts.forgelin.Tags;
+import net.shadowfacts.forgelin.coroutines.MinecraftClientDispatcher;
 
+import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 import java.util.Map;
@@ -27,7 +29,10 @@ public final class ForgelinPlugin implements IFMLLoadingPlugin {
 
     @Override
     public void injectData(Map<String, Object> data) {
-
+        if (FMLLaunchHandler.side().isClient()) {
+            //Kotlin call is safe here, deploader has run.
+            MinecraftClientDispatcher.setup();
+        }
     }
 
     @Override

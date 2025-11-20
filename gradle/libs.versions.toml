@@ -1,11 +1,12 @@
 [versions]
-fpgradle = "2.2.1"
+fpgradle = "3.1.0"
 kotlin = "2.2.21"
 coroutines = "1.10.2"
 serialization = "1.9.0"
 annotations = "26.0.2-1"
+fastutil = "8.5.16"
 
-fplib = "1.9.1"
+fplib = "1.10.4"
 
 [libraries]
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
@@ -15,6 +16,7 @@ kotlinx-coroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-co
 kotlinx-coroutinesJdk8 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8", version.ref = "coroutines" }
 kotlinx-serializationCore = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "serialization" }
 jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "annotations"}
+fastutil = { module = "it.unimi.dsi:fastutil", version.ref = "fastutil" }
 fplib = { module = "com.falsepattern:falsepatternlib-mc1.7.10", version.ref = "fplib" }
 
 [plugins]
