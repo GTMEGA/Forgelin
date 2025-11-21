@@ -28,7 +28,3 @@ kotlin.stdlib.default.dependency=false
 ```
 
 The kotlin version that forgelin downloads is always in the suffix after the `-` in the version number
-
-### Credits
-
-- ServerThreadUtil ported from GTNHLib, licensed under LGPLv3
