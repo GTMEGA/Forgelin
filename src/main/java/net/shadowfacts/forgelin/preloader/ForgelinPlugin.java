@@ -10,6 +10,7 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import java.util.Map;
 
 //Java class because Kotlin is unsafe to use with IFMLLoadingPlugin (fplib deploader)
+@IFMLLoadingPlugin.SortingIndex(1001)
 public final class ForgelinPlugin implements IFMLLoadingPlugin {
     static {
         DeploaderStub.bootstrap(false);
