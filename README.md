@@ -6,6 +6,7 @@ Fork of [shadowfacts Forgelin](https://github.com/shadowfacts/Forgelin).
 - Updated to Kotlin 2.x
 - Dynamic kotlin downloading via FalsePatternLib (much smaller mod jar size!)
 - Provides a Forge `ILanguageAdapter` for using Kotlin `object` classes as your main mod class.
+- Provides Dispatchers.MinecraftServer and Dispatchers.MinecraftClient for dispatching coroutines during server tick and client tick, respectively
 
 ## Usage with [FPGradle](https://github.com/Falsepattern/Examplemod)
 
