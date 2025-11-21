@@ -14,12 +14,12 @@ build.gradle.kts:
 ```kotlin
 plugins {
     //...
-    kotlin("jvm") version "2.2.0"
+    kotlin("jvm") version "2.2.21"
 }
 minecraft_fp {
     //...
     kotlin {
-        forgelinVersion = "2.1.1-2.2.0"
+        forgelinVersion = "2.4.0-2.2.21"
     }
 }
 ```
@@ -27,5 +27,7 @@ gradle.properties:
 ```properties
 kotlin.stdlib.default.dependency=false
 ```
+
+<!--TODO: guide without fpgradle-->
 
 The kotlin version that forgelin downloads is always in the suffix after the `-` in the version number
