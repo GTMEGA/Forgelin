@@ -30,7 +30,7 @@ public final class ForgelinPlugin implements IFMLLoadingPlugin {
 
     @Override
     public String getSetupClass() {
-        return "net.shadowfacts.forgelin.preloader.ForgelinSetup";
+        return Tags.ROOT_PKG + ".preloader.ForgelinSetup";
     }
 
     @Override

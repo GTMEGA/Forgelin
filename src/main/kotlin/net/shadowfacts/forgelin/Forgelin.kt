@@ -14,7 +14,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent
     version = Tags.MOD_VERSION,
     acceptableRemoteVersions = "*",
     acceptedMinecraftVersions = "*",
-    modLanguageAdapter = "net.shadowfacts.forgelin.KotlinAdapter"
+    modLanguageAdapter = Tags.ROOT_PKG + ".KotlinAdapter"
 )
 object Forgelin {
 

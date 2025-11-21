@@ -62,7 +62,6 @@ tasks.processResources {
     }
 }
 
-println()
 tasks.shadowJar {
     val root = minecraft_fp.mod.rootPkg.map { it.replace('.', '/') }
     exclude("it/unimi/dsi/fastutil/**/package-info.class")
