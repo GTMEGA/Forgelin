@@ -50,11 +50,20 @@ val bundledKotlin = listOf(
     libs.kotlinx.serializationCoreJvm
 )
 
+val depLoader = configurations.register("deploader")
+
 repositories {
     exclusive(mavenpattern(), "com.falsepattern")
 }
 
-val depLoader = configurations.register("deploader")
+dependencies {
+    bundledKotlin.forEach { compileOnlyApi(it) }
+    shadowImplementation(libs.fastutil)
+
+    //Deploader
+    depLoader(variantOf(libs.fplib) { classifier("deploader") })
+    shadowImplementation(variantOf(libs.fplib) { classifier("deploader_stub") })
+}
 
 tasks.processResources {
     from(depLoader) {
@@ -93,15 +102,6 @@ val offlineJar = tasks.register<Jar>("offlineJar") {
 
 tasks.named("assemble") {
     dependsOn(offlineJar)
-}
-
-dependencies {
-    bundledKotlin.forEach { compileOnlyApi(it) }
-    shadowImplementation(libs.fastutil)
-
-    //Deploader
-    depLoader(variantOf(libs.fplib) { classifier("deploader") })
-    shadowImplementation(variantOf(libs.fplib) { classifier("deploader_stub") })
 }
 
 tasks.processResources {
