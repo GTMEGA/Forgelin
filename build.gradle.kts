@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.kotlin)
 }
 
-group = "mega"
+group = "com.falsepattern"
 
 minecraft_fp {
     mod {
@@ -30,8 +30,8 @@ minecraft_fp {
 
     publish {
         maven {
-            repoName = "mega"
-            repoUrl = "https://mvn.falsepattern.com/gtmega_releases"
+            repoName = "mavenpattern"
+            repoUrl = "https://mvn.falsepattern.com/releases"
         }
     }
 }
