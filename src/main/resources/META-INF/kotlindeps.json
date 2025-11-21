@@ -6,16 +6,7 @@
   "dependencies": {
     "always": {
       "common": [
-        "org.jetbrains.kotlin:kotlin-stdlib:${versionKotlin}",
-        "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versionKotlin}",
-        "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versionKotlin}",
-        "org.jetbrains.kotlin:kotlin-reflect:${versionKotlin}",
-        "org.jetbrains:annotations:${versionAnnotations}",
-        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versionCoroutines}",
-        "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:${versionCoroutines}",
-        "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:${versionCoroutines}",
-        "org.jetbrains.kotlinx:kotlinx-serialization-core:${versionSerialization}",
-        "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:${versionSerialization}"
+        "${kotlinDeps}"
       ]
     }
   }
