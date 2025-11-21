@@ -19,6 +19,11 @@ minecraft_fp {
         hasKotlinDeps = true
     }
 
+    shadow {
+        relocate = true
+        minimize = true
+    }
+
     tokens {
         tokenClass = "Tags"
     }
@@ -35,6 +40,20 @@ repositories {
     exclusive(mavenpattern(), "com.falsepattern")
 }
 
+val depLoader = configurations.register("deploader")
+
+tasks.processResources {
+    from(depLoader) {
+        rename { "fplib_deploader.jar" }
+    }
+}
+
+println()
+tasks.shadowJar {
+    val root = minecraft_fp.mod.rootPkg.map { it.replace('.', '/') }
+    exclude("it/unimi/dsi/fastutil/**/package-info.class")
+}
+
 dependencies {
     compileOnlyApi(variantOf(libs.fplib) { classifier("api") })
     runtimeOnly(variantOf(libs.fplib) { classifier("dev") })
@@ -45,7 +64,11 @@ dependencies {
     compileOnlyApi(libs.kotlinx.coroutinesCore)
     compileOnlyApi(libs.kotlinx.coroutinesJdk8)
     compileOnlyApi(libs.kotlinx.serializationCore)
-    compileOnly(libs.fastutil)
+    shadowImplementation(libs.fastutil)
+
+    //Deploader
+    depLoader(variantOf(libs.fplib) { classifier("deploader") })
+    shadowImplementation(variantOf(libs.fplib) { classifier("deploader_stub") })
 }
 
 tasks.processResources {
@@ -54,7 +77,6 @@ tasks.processResources {
         "versionAnnotations" to libs.versions.annotations,
         "versionCoroutines" to libs.versions.coroutines,
         "versionSerialization" to libs.versions.serialization,
-        "versionFastutil" to libs.versions.fastutil
     )
     inputs.property("forgelinVersions", versions)
     filesMatching("META-INF/kotlindeps.json") {

@@ -1,5 +1,6 @@
 package net.shadowfacts.forgelin.preloader;
 
+import com.falsepattern.deploader.DeploaderStub;
 import net.shadowfacts.forgelin.Tags;
 import net.shadowfacts.forgelin.coroutines.MinecraftClientDispatcher;
 
@@ -10,6 +11,10 @@ import java.util.Map;
 
 //Java class because Kotlin is unsafe to use with IFMLLoadingPlugin (fplib deploader)
 public final class ForgelinPlugin implements IFMLLoadingPlugin {
+    static {
+        DeploaderStub.bootstrap(false);
+        DeploaderStub.runDepLoader();
+    }
     @Override
     public String[] getASMTransformerClass() {
         return new String[] {
