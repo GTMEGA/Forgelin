@@ -55,8 +55,6 @@ tasks.shadowJar {
 }
 
 dependencies {
-    compileOnlyApi(variantOf(libs.fplib) { classifier("api") })
-    runtimeOnly(variantOf(libs.fplib) { classifier("dev") })
     compileOnlyApi(libs.kotlin.stdlib)
     compileOnlyApi(libs.kotlin.stdlibJdk8)
     compileOnlyApi(libs.kotlin.reflect)

@@ -1,10 +1,6 @@
 # Forgelin 2
 Fork of [shadowfacts Forgelin](https://github.com/shadowfacts/Forgelin).
 
-## Dependencies
-
-- [FalsePatternLib](https://github.com/FalsePattern/FalsePatternLib)
-
 ## Additions
 - Backport to 1.7.10
 - Updated to Kotlin 2.x
