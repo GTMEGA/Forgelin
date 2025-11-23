@@ -1,4 +1,7 @@
-# Forgelin 2
+# Forgelin 2 <img src=".idea/icon.png" align="right" width=150>
+
+<sup>**[CurseForge](https://www.curseforge.com/minecraft/mc-mods/forgelin-legacy) | [Modrinth](https://modrinth.com/mod/forgelin-legacy)**</sup>
+
 Fork of [shadowfacts Forgelin](https://github.com/shadowfacts/Forgelin).
 
 ## Additions

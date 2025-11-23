@@ -118,6 +118,9 @@ tasks.processResources {
             res.toString()
         })
     }
+    from(file(".idea/icon.png")) {
+        rename { "forgelin.png" }
+    }
 }
 
 afterEvaluate {
